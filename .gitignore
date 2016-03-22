@@ -1,3 +1,4 @@
 secrets.py
 /texts
 .DS_Store
+*.pyc

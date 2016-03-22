@@ -15,6 +15,7 @@ def strip(text):
 
 
 strip(taxText)
+
 with open('taxnouns.p', 'wb') as f:
 	pickle.dump(nouns, f)
 	f.close()
