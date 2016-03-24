@@ -23,7 +23,7 @@ class textGen(object):
 		nounCount = {}
 
 		for line in self.baseText:
-			line = line.rstrip('\r\n')
+			#line = line.rstrip('\r\n')
 		 	textHolder += line	
 
 		textHolder.split()
@@ -51,11 +51,15 @@ class textGen(object):
 		userLen = len(userN)
 		sentLen = len(sentence)
 		sentence = str(sentence)
-
+		sentence = sentence.replace('"','')
+		sentence = sentence.replace('_','')
+		sentence = sentence.replace('Forec.', 'foreconscious')
+		sentence = sentence.replace('Unc.', 'unconscious')
 		if userLen + sentLen < 140:
 			print "@", userN, " ", sentence
 			try:
-				twitter.update_status(status= "@" + userN + " " + sentence, in_reply_to_status_id=tweet_id)
+				print "hi"
+				#twitter.update_status(status= "@" + userN + " " + sentence, in_reply_to_status_id=tweet_id)
 			except TwythonError as e:
 				print e
 		else:
